@@ -69,3 +69,19 @@ body {
 .score p:last-child {
   background: var(--dark-color);
 }
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.choice {
+  cursor: pointer;
+}
+
+.choice:hover {
+  color: var(--primary-color);
+}
