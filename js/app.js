@@ -1,25 +1,9 @@
-function computerPlay() {
-  let game = ['Rock', 'Paper', 'Scissors']
-  const cpuPick = game[Math.floor(Math.random() * game.length)]
-  return cpuPick
-}
-
-function playRound(playerSelection, computerSelection) {
-
-}
-
-function tieMessage() {
-
-}
-
-function winMessage() {
-
-}
-
-function loseMessage() {
-
-}
-
-function game() {
-
+const choices = document.querySelectorAll('.choice') // put all the choices in an array
+const score = document.getElementById('score')
+const result = document.getElementById('result')
+const restart = document.getElementById('restart')
+const modal = document.querySelector('.modal')
+const scoreboard = {
+  player: 0,
+  computer: 0
 }
