@@ -55,7 +55,7 @@ function getWinner(p, c) {
 }
 
 function showWinner(winner, computerChoice) {
-  if (winner === 'player') {
+  if (winner === 'Player') {
     // Increment Player Score
     scoreboard.player++
     // Show Modal Result
@@ -64,7 +64,7 @@ function showWinner(winner, computerChoice) {
       <i class="fas fa-hand-${computerChoice} fa-10x"></i>
       <p>Computer Chose <strong>${computerChoice}</strong></p>
     `
-  } else if (winner === 'computer') {
+  } else if (winner === 'Computer') {
     // Increment Computer Score
     scoreboard.computer++
     // Show Modal Result
@@ -89,6 +89,16 @@ function showWinner(winner, computerChoice) {
   modal.style.display = 'block'
 }
 
+// Restart Game
+function restartGame() {
+  scoreboard.player = 0
+  scoreboard.computer = 0
+  score.innerHTML = `
+    <p>Player: 0</p>
+    <p>Computer: 0</p>
+  `
+}
+
 // Clear Modal
 function clearModal(e) {
   if(e.target === modal) {
@@ -99,3 +109,4 @@ function clearModal(e) {
 // Event Listeners
 choices.forEach(choice => choice.addEventListener('click', play))
 window.addEventListener('click', clearModal)
+restart.addEventListener('click', restartGame)
