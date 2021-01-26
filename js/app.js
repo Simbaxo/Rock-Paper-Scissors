@@ -28,10 +28,49 @@ const game = () => {
         // Computer Choice
         const computerNumber = Math.floor(Math.random() * 3)
         const computerChoice = computerOptions[computerNumber]
-        console.log(computerChoice)
+        // Here is where we call compare hands
       })
     })
+  }
 
+  const compareHands = (playerChoice, computerChoice) => {
+    // Update Text
+    const winner = document.querySelector('.winner')
+    // Checking for a tie
+    if (playerChoice === computerChoice) {
+      winner.textContent = 'It is a tie'
+      return
+    }
+    // Check for Rock
+    if (playerChoice === 'rock') {
+      if (computerChoice === 'scissors') {
+        winner.textContent === 'Player Wins!'
+        return
+      } else {
+        winner.textContent === 'Computer Wins!'
+        return
+      }
+    }
+    // Check for Paper
+    if (playerChoice === 'paper') {
+      if (computerChoice === 'rock') {
+        winner.textContent === 'Player Wins!'
+        return
+      } else {
+        winner.textContent === 'Computer Wins!'
+        return
+      }
+    }
+    // Check for Scissors
+    if (playerChoice === 'scissors') {
+      if (computerChoice === 'paper') {
+        winner.textContent === 'Player Wins!'
+        return
+      } else {
+        winner.textContent === 'Computer Wins!'
+        return
+      }
+    }
   }
 
   // call all the inner functions
