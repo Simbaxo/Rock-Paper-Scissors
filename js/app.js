@@ -29,8 +29,20 @@ const game = () => {
         const computerNumber = Math.floor(Math.random() * 3)
         const computerChoice = computerOptions[computerNumber]
         // Here is where we call compare hands
+        compareHands(this.textContent, computerChoice)
+
+        // Update Images
+        playerHand.src = `../assets/${this.textContent}.png`
+        computerHand.src = `../assets/${computerChoice}.png`
       })
     })
+  }
+
+  const updateScore = () => {
+    const playerScore = document.querySelector('.player-score p')
+    const computerScore = document.querySelector('.computer-score p')
+    playerScore.textContent = pScore
+    computerScore.textContent = cScore
   }
 
   const compareHands = (playerChoice, computerChoice) => {
@@ -44,30 +56,42 @@ const game = () => {
     // Check for Rock
     if (playerChoice === 'rock') {
       if (computerChoice === 'scissors') {
-        winner.textContent === 'Player Wins!'
+        winner.textContent = 'Player Wins!'
+        pScore++
+        updateScore()
         return
       } else {
-        winner.textContent === 'Computer Wins!'
+        winner.textContent = 'Computer Wins!'
+        cScore++
+        updateScore()
         return
       }
     }
     // Check for Paper
     if (playerChoice === 'paper') {
-      if (computerChoice === 'rock') {
-        winner.textContent === 'Player Wins!'
+      if (computerChoice === 'scissors') {
+        winner.textContent = 'Computer Wins!'
+        cScore++
+        updateScore()
         return
       } else {
-        winner.textContent === 'Computer Wins!'
+        winner.textContent = 'Player Wins!'
+        pScore++
+        updateScore()
         return
       }
     }
     // Check for Scissors
     if (playerChoice === 'scissors') {
-      if (computerChoice === 'paper') {
-        winner.textContent === 'Player Wins!'
+      if (computerChoice === 'rock') {
+        winner.textContent = 'Computer Wins!'
+        cScore++
+        updateScore()
         return
       } else {
-        winner.textContent === 'Computer Wins!'
+        winner.textContent = 'Player Wins!'
+        pScore++
+        updateScore()
         return
       }
     }
